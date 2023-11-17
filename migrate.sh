@@ -6,4 +6,4 @@ echo "Running migrations..."
 DB=$PROD_DBNAME alembic -c /alembic.ini upgrade head
 echo "Migrations completed."
 
-PGPASSWORD=postgres psql -U postgres -h postgres_container -p 5432 -c "\dt" devdb
+PGPASSWORD=postgres psql -U postgres -h postgres_container -p 5432 -c "\dt" $DB
