@@ -1,0 +1,13 @@
+services:
+  migrations:
+    build: 
+      context: ./postgres-migrations
+      dockerfile: Dockerfile.migrations
+    container_name: migrations_container
+    env_file:
+      - .env
+    volumes:
+      - ./migrations/versions:/migrations/versions # Mounts reivisions directory over
+      - ./postgres-migrations/dummy-data.csv:/dummy-data.csv
+    depends_on:
+      - db # Change this to your db service
